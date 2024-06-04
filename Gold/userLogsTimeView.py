@@ -1,10 +1,10 @@
 from Gold.view import View
 from pyspark.sql.functions import *
 
-class UserLogsView(View):
+class UserLogsTimeView(View):
 
     def aggregate(self, df):
-        return df.groupBy("user_id").agg(
+        return df.groupBy("date").agg(
             sum("num_25").alias("num_25"),\
             sum("num_50").alias("num_50"),\
             sum("num_75").alias("num_75"),\

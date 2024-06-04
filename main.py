@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from Silver import processMembers, processTransactions, processUserLogs, processTrainData, processTestData
-from Gold import userLogsView
+from Gold import userLogsView, userLogsTimeView, transactionsView, transactionsTimeView, test
 
 if __name__ == '__main__':
 
@@ -15,4 +15,7 @@ if __name__ == '__main__':
     processTestData.ProcessTestData(spark,bucketUrl + "/Bronze/sample_submission_*.csv",bucketUrl + "/Silver/testData").run()
 
     #Gold
+    transactionsView.TransactionsView(spark,bucketUrl + "/Silver/transactions",bucketUrl + "/Gold/transactionsView").run()
+    transactionsTimeView.TransactionsTimeView(spark,bucketUrl + "/Silver/transactions",bucketUrl + "/Gold/transactionsTimeView").run()
     userLogsView.UserLogsView(spark,bucketUrl + "/Silver/userLogs",bucketUrl + "/Gold/userLogsView").run()
+    userLogsTimeView.UserLogsTimeView(spark,bucketUrl + "/Silver/userLogs",bucketUrl + "/Gold/userLogsTimeView").run()
