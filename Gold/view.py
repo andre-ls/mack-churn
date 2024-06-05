@@ -4,8 +4,8 @@ class View:
         self.silverDirectory = silverDirectory
         self.goldDirectory = goldDirectory
 
-    def readFromSilver(self):
-        return self.spark.read.option("inferSchema","true").parquet(self.silverDirectory)
+    def readFromSilver(self, database):
+        return self.spark.read.option("inferSchema","true").parquet(self.silverDirectory + "/" + database)
 
     def writeToGold(self, df):
         df.write.mode("overwrite").parquet(self.goldDirectory)
