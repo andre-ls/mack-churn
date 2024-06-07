@@ -5,14 +5,16 @@ from Gold import goldView
 if __name__ == '__main__':
 
     spark = SparkSession.builder.appName("KKBox").getOrCreate()
-    bucketUrl = "gs://mack-churn-lake"
+    bronzeBucket = "gs://mack-churn-lake-bronze"
+    silverBucket = "gs://mack-churn-lake-silver"
+    goldBucket = "gs://mack-churn-lake-gold"
 
     #Silver
-    processMembers.ProcessMembers(spark,bucketUrl + "/Bronze/members_v3.csv",bucketUrl + "/Silver/members").run()
-    processTransactions.ProcessTransactions(spark,bucketUrl + "/Bronze/transactions*.csv",bucketUrl + "/Silver/transactions").run()
-    processUserLogs.ProcessUserLogs(spark,bucketUrl + "/Bronze/user_logs*.csv",bucketUrl + "/Silver/userLogs").run()
-    processTrainData.ProcessTrainData(spark,bucketUrl + "/Bronze/train*.csv",bucketUrl + "/Silver/trainData").run()
-    processTestData.ProcessTestData(spark,bucketUrl + "/Bronze/sample_submission_*.csv",bucketUrl + "/Silver/testData").run()
+    processMembers.ProcessMembers(spark,bronzeBucket + "/members/*",silverBucket + "/members").run()
+    processTransactions.ProcessTransactions(spark,bronzeBucket + "/transactions/*",silverBucket + "/transactions").run()
+    processUserLogs.ProcessUserLogs(spark,bronzeBucket + "/userLogs/*",silverBucket + "/userLogs").run()
+    processTrainData.ProcessTrainData(spark,bronzeBucket + "/trainData/*",silverBucket + "/trainData").run()
+    processTestData.ProcessTestData(spark,bronzeBucket + "/testData/*",silverBucket + "/testData").run()
 
     #Gold
-    goldView.GoldView(spark,bucketUrl + "/Silver", bucketUrl + "/Gold/GoldView").run()
+    goldView.GoldView(spark,silverBucket, goldBucket + "/GoldView").run()
