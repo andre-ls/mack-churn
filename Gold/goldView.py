@@ -3,10 +3,19 @@ from pyspark.sql.functions import *
 
 class GoldView(View):
 
+    def createChurnStruct(self):
+        trainDf = self.readFromSilver("trainData")
+        structColumns = trainDf.columns
+        structColumns.remove("user_id")
+        churnDf = trainDf.withColumn("churn", struct(*structColumns))\
+                                       .select("user_id", "churn")\
+                                       .groupBy("user_id").agg(collect_list("churn").alias("churn"))
+        return churnDf
+
     def createMembersView(self):
         membersDf = self.readFromSilver("members")
-        trainDf = self.readFromSilver("trainData")
-        membersDf = membersDf.join(trainDf, how="left",on="user_id")
+        churnDf = self.createChurnStruct()
+        membersDf = membersDf.join(churnDf, how="left",on="user_id")
         return membersDf
 
     def createTransactionsStruct(self):
