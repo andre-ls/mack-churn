@@ -31,6 +31,6 @@ class GoldView(View):
         membersDf = self.createMembersView()
         transactionsDf = self.createTransactionsStruct()
         userLogsDf = self.createUserLogsStruct()
-        goldDf = membersDf.join(transactionsDf, "user_id", "inner")\
-                          .join(userLogsDf, "user_id", "inner")
+        goldDf = membersDf.join(transactionsDf, how="left", on="user_id")
+        goldDf = goldDf.join(userLogsDf, how="left", on="user_id")
         self.writeToGold(goldDf)
