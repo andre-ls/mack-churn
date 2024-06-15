@@ -1,0 +1,10 @@
+numpy
+pandas
+pandas-gbq
+google-cloud-bigquery
+pyarrow
+google-auth
+matplotlib
+seaborn
+scikit-learn
+xgboost
