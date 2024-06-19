@@ -1,0 +1,7 @@
+FROM python
+
+COPY trainer /trainer
+
+RUN pip install -r /trainer/requirements.txt
+
+ENTRYPOINT ["python", "/trainer/train.py"]
