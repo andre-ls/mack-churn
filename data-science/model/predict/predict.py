@@ -20,14 +20,13 @@ def loadModel():
 
 def readData():
     # Read data from BigQuery
-    query = 'SELECT * FROM `cloud-714.mack_churn_gold.ChurnTestData`'
+    query = 'SELECT * FROM `cloud-714.mack_churn_views.PredictView`'
     df = pandas_gbq.read_gbq(query, project_id='cloud-714')
     return df
 
 def predict(df, model):
 
     # Preprocess
-    df = df.drop(columns=['is_churn'],axis=1)
     df = df.set_index('user_id')
 
     # Predict
@@ -38,7 +37,7 @@ def predict(df, model):
 
 def writeData(df):
     # Write data to BigQuery
-    pandas_gbq.to_gbq(df[['predictions']], 'mack_churn_gold.ChurnPredictions', project_id='cloud-714', if_exists='replace')
+    pandas_gbq.to_gbq(df[['predictions']], 'mack_churn_gold.ChurnPredictions_04_2017', project_id='cloud-714', if_exists='replace')
 
 if __name__ == '__main__':
     model = loadModel()
