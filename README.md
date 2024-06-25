@@ -11,7 +11,9 @@ Nesse projeto, os alunos foram desafiados a criar uma solução de dados complet
 O projeto foi apresentado em um evento de finalização de semestre, que contou com a participação dos professores e alunos do curso, além de uma banca avaliadora composta por profissionais de grande experiência no mercado de dados.
 
 ## Contexto
-![Logo](Images/logo.png)
+<p align="center">
+  <img src="Images/logo.png" />
+</p>
 
 O MackBox é um serviço de streaming de música desenvolvido pela MackBox Inc., empresa sediada no Brasil. Com um repertório de mais de 30 milhões de músicas, o MackBox possui como alvo principalmente o mercado brasileiro e de alguns países da América do Sul, onde já superou a marca de 10 milhões de usuários totais em 10 anos de operação.
 
@@ -82,7 +84,9 @@ Para a elaboração de um modelo efetivo, três etapas principais foram seguidas
 - Em seguida, um processo de Engenharia de Variáveis foi adotado, onde a partir dos dados originais, novas variáveis foram derivadas com a ideia de que pudessem auxiliar o modelo a ser construído na distinção de usuários que pudessem exercer o churn.
 - Por fim, a partir dos dados originais aliados aos dados criados na etapa anterior, alguns modelos de classificação foram testados, visando encontrar uma melhor solução para o caso de uso da empresa.
 
-![Machine Learning](Images/machine_learning.png)
+<p align="center">
+  <img src="Images/machine_learning.png" />
+</p>
 
 Para medir a performance dos modelos e compará-las a Acurácia Balanceada foi escolhida seguindo dois princípios:
 - Primeiramente ser uma métrica simples e de fácil entedimento para a área de negócios.
@@ -90,11 +94,15 @@ Para medir a performance dos modelos e compará-las a Acurácia Balanceada foi e
 
 A partir disso, os seguintes resultados foram obtidos, para os diferentes modelo avaliados: 
 
-![Resultados](Images/model_results.png)
+<p align="center">
+  <img src="Images/model_results.png" />
+</p>
 
 Claramente, o XGBoost apresentou a melhor performance, sendo o modelo escolhido para ser utilizado na solução final. Além da Acurácia Balanceada, sua Matriz de Confusão também foi avaliada, e os resultados obtidos são apresentados na imagem abaixo.
 
-![Matriz de Confusão](Images/confusion_matrix.png)
+<p align="center">
+  <img src="Images/confusion_matrix.png" width="200"/>
+</p>
 
 O interessante de se observar neste resultado é que os falsos negativos (usuários que não foram classificados como churn, mas que na verdade exerceram o churn) ocorreram em uma quantidade bem menor do que os falso positivos (usuários que foram classificados como churn, mas que na verdade não exerceram o churn), visto que o primeiro erro é mais prejudicial para a empresa em termos financeiros, visto que ações de retenção poderiam ser tomadas para evitar a perda do usuário.
 
