@@ -161,3 +161,5 @@ cython_debug/
 
 # GCP Key
 gcp_key.json
+/DataScience/secrets/gcp_key.json
+/DataEngineering/secrets/gcp_key.json
