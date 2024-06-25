@@ -95,13 +95,13 @@ Para medir a performance dos modelos e compará-las a Acurácia Balanceada foi e
 A partir disso, os seguintes resultados foram obtidos, para os diferentes modelo avaliados: 
 
 <p align="center">
-  <img src="Images/model_results.png" width="700"/>
+  <img src="Images/model_results.png" width="500"/>
 </p>
 
 Claramente, o XGBoost apresentou a melhor performance, sendo o modelo escolhido para ser utilizado na solução final. Além da Acurácia Balanceada, sua Matriz de Confusão também foi avaliada, e os resultados obtidos são apresentados na imagem abaixo.
 
 <p align="center">
-  <img src="Images/confusion_matrix.png" width="700"/>
+  <img src="Images/confusion_matrix.png" width="500"/>
 </p>
 
 O interessante de se observar neste resultado é que os falsos negativos (usuários que não foram classificados como churn, mas que na verdade exerceram o churn) ocorreram em uma quantidade bem menor do que os falso positivos (usuários que foram classificados como churn, mas que na verdade não exerceram o churn), visto que o primeiro erro é mais prejudicial para a empresa em termos financeiros, visto que ações de retenção poderiam ser tomadas para evitar a perda do usuário.
