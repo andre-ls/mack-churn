@@ -1,0 +1,7 @@
+pandas
+pandas-gbq
+google-cloud-bigquery
+google-cloud-storage
+google-auth
+xgboost==1.6.0
+scikit-learn
