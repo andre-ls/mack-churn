@@ -124,4 +124,6 @@ Os resultados alcançaram uma performance bastante satisfatória, mas como em qu
     - Utilizar frameworks próprios para o ajuste de hiperparâmetros do modelo
     - Aplicar métodos para a seleção de variáveis mais relevantes a serem aplicadas ao modelo
     - Utilizar técnicas de Ensemble para juntar resultados de diferentes modelos em uma única predição mais assertiva
+
+
 - Utilizar uma ferramenta mais específica para a disponibilização do modelo através da nuvem.	
